@@ -7,15 +7,19 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float degreesPerSec = 5f;
     [SerializeField] private float maxY = 30f;
     [SerializeField] private float minY;
-    // Start is called before the first frame update
+
     void Awake()
     {
         minY = 360 - maxY;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        RotateCamera();
+    }
+
+    private void RotateCamera() {
+        // Clamp turn radius
         if (transform.eulerAngles.y > 180 && transform.eulerAngles.y < minY)
         {
             transform.Rotate(new Vector3(0f, PanRight(), 0f) * Time.deltaTime);
