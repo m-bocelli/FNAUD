@@ -7,14 +7,17 @@ public class LightButton : MonoBehaviour
 {
     [SerializeField] private GameObject _light;
 
-    private void OnMouseDown()
+    private void Update()
     {
-        SwitchLight();
+        if (gameObject.GetComponent<Renderer>().isVisible) 
+        {
+            SwitchLight();
+        }
     }
 
     private void SwitchLight()
     {
-        _light.SetActive(!_light.activeSelf);
+        if (Input.GetKeyDown(KeyCode.Q)) _light.SetActive(!_light.activeSelf);
     }
 
 }
