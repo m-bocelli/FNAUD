@@ -9,7 +9,7 @@ public class LightButton : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.GetComponent<Renderer>().isVisible) 
+        if (gameObject.GetComponent<Renderer>().isVisible)
         {
             SwitchLight();
         }
@@ -17,7 +17,7 @@ public class LightButton : MonoBehaviour
 
     private void SwitchLight()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             _light.SetActive(!_light.activeSelf);
             EnableEmission();
@@ -26,10 +26,12 @@ public class LightButton : MonoBehaviour
 
     private void EnableEmission()
     {
-        if (_light.activeSelf) 
+        if (_light.activeSelf)
         {
             gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        } else {
+        }
+        else
+        {
             gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
         }
     }
